@@ -6,25 +6,25 @@ import { CoreCommonModule } from '@core/common.module';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
-import { SampleComponent } from './sample.component';
+import { PokemonComponent } from './pokemon.component';
 import { HomeComponent } from './home.component';
 
 const routes = [
   {
-    path: 'sample',
-    component: SampleComponent,
+    path: 'pokemons',
+    component: PokemonComponent,
     data: { animation: 'sample' }
   },
-  {
-    path: 'home',
-    component: HomeComponent,
-    data: { animation: 'home' }
-  }
+  // {
+  //   path: 'home',
+  //   component: HomeComponent,
+  //   data: { animation: 'home' }
+  // }
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent],
+  declarations: [PokemonComponent, HomeComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule],
-  exports: [SampleComponent, HomeComponent]
+  exports: [PokemonComponent, HomeComponent]
 })
-export class SampleModule {}
+export class PokemonModule {}

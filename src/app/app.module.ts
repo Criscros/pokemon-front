@@ -17,7 +17,7 @@ import { coreConfig } from 'app/app-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
-import { SampleModule } from 'app/main/sample/sample.module';
+import { PokemonModule } from 'app/main/pokemon/pokemon.module';
 
 const appRoutes: Routes = [
   {
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/pokemons',
     pathMatch: 'full'
   },
   {
@@ -59,7 +59,7 @@ const appRoutes: Routes = [
 
     // App modules
     LayoutModule,
-    SampleModule
+    PokemonModule
   ],
 
   bootstrap: [AppComponent]

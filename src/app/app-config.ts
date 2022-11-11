@@ -16,14 +16,14 @@ import { CoreConfig } from '@core/types';
 // prettier-ignore
 export const coreConfig: CoreConfig = {
   app: {
-    appName     : 'Vuexy',                                        // App Name
-    appTitle    : 'Vuexy - Angular 14+ Bootstrap Admin Template', // App Title
+    appName     : 'ROCKETFY',                                        // App Name
+    appTitle    : 'Rocketfy', // App Title
     appLogoImage: 'assets/images/logo/logo.svg',                  // App Logo
     appLanguage : 'en',                                           // App Default Language (en, fr, de, pt etc..)
   },
   layout: {
-    skin  : 'default',                        // default, dark, bordered, semi-dark
-    type  : 'vertical',                       // vertical, horizontal
+    skin  : 'dark',                        // default, dark, bordered, semi-dark
+    type  : 'horizontal',                       // vertical, horizontal
     animation : 'fadeIn',                     // fadeInLeft, zoomIn , fadeIn, none
     menu : {
       hidden               : false,           // Boolean: true, false
