@@ -8,23 +8,21 @@ import { ContentHeaderModule } from 'app/layout/components/content-header/conten
 
 import { PokemonComponent } from './pokemon.component';
 import { HomeComponent } from './home.component';
+import { AuthGuard } from 'app/auth/helpers'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes = [
   {
     path: 'pokemons',
     component: PokemonComponent,
+    canActivate: [AuthGuard],
     data: { animation: 'sample' }
   },
-  // {
-  //   path: 'home',
-  //   component: HomeComponent,
-  //   data: { animation: 'home' }
-  // }
 ];
 
 @NgModule({
   declarations: [PokemonComponent, HomeComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule],
+  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule,NgbModule],
   exports: [PokemonComponent, HomeComponent]
 })
 export class PokemonModule {}

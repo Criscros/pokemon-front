@@ -6,6 +6,7 @@ import { locale as de } from './i18n/de'
 import { locale as pt } from './i18n/pt'
 
 import { CoreTranslationService } from '@core/services/translation.service'
+import { PokemonService } from '../services/pokemon.service'
 
 @Component({
   selector: 'app-sample',
@@ -14,21 +15,20 @@ import { CoreTranslationService } from '@core/services/translation.service'
 })
 export class PokemonComponent implements OnInit {
   public contentHeader: object
-
+  public pageAdvancedEllipses = 1;
+  public items =  []
   /**
    *
    * @param {CoreTranslationService} _coreTranslationService
+   * @param {CoreConfigService} _coreConfigService
    */
-  constructor(private _coreTranslationService: CoreTranslationService) {
+  constructor(
+    private _coreTranslationService: CoreTranslationService,
+    private pokemonService: PokemonService
+    ) {
     this._coreTranslationService.translate(en, fr, de, pt)
+
   }
-
-  // Lifecycle Hooks
-  // -----------------------------------------------------------------------------------------------------
-
-  /**
-   * On init
-   */
   ngOnInit() {
     this.contentHeader = {
       headerTitle: 'Home',
@@ -48,5 +48,28 @@ export class PokemonComponent implements OnInit {
         ]
       }
     }
+    // SERVICE GET POKEMONS... 
+    this.getPokemons(0)
+  }
+  getPokemons(page){
+    
+    this.pokemonService.getPokemons(page).subscribe(
+      res => {
+          console.log('RESPONSE API', res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+  }
+
+  pageChange(){
+
+    setTimeout(() => {
+      console.log('PAGE',this.pageAdvancedEllipses);
+      this.getPokemons(this.pageAdvancedEllipses)
+    }, 1);
+
   }
 }
