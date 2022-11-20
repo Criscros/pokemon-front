@@ -17,6 +17,7 @@ export class PokemonComponent implements OnInit {
   public contentHeader: object
   public pageAdvancedEllipses = 1;
   public items =  []
+  public loading= false
   /**
    *
    * @param {CoreTranslationService} _coreTranslationService
@@ -49,27 +50,50 @@ export class PokemonComponent implements OnInit {
       }
     }
     // SERVICE GET POKEMONS... 
+    this.loading = true;
     this.getPokemons(0)
   }
   getPokemons(page){
     
     this.pokemonService.getPokemons(page).subscribe(
       res => {
-          console.log('RESPONSE API', res);
+
+          if( res.succucess) {
+            console.log('----',res.data);
+            res.data.map((pokemon)=>{
+  
+              let pokemonData = {
+                id : pokemon.id,
+                image: pokemon.sprites.front_default,
+                name: pokemon.name,
+                type: pokemon.types[0].type.name
+              };
+  
+              this.items.push(pokemonData)
+  
+            })
+
+            this.loading = false
+          }
+
       },
       err => {
         console.log(err);
       }
     );
-
   }
 
   pageChange(){
-
+    this.items = []
+    this.loading = true
     setTimeout(() => {
       console.log('PAGE',this.pageAdvancedEllipses);
       this.getPokemons(this.pageAdvancedEllipses)
     }, 1);
 
+  }
+  showDetails(id){
+
+    console.log('****',id);
   }
 }
