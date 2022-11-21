@@ -9,4 +9,5 @@ export class User {
   avatar: string;
   role: Role;
   token?: string;
+  name:string;
 }

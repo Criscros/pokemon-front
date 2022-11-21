@@ -29,7 +29,8 @@ const users: User[] = [
     firstName: 'John',
     lastName: 'Doe',
     avatar: 'avatar-s-11.jpg',
-    role: Role.Admin
+    role: Role.Admin,
+    name:"xxx"
   },
   {
     id: 2,
@@ -38,7 +39,8 @@ const users: User[] = [
     firstName: 'Nataly',
     lastName: 'Doe',
     avatar: 'avatar-s-2.jpg',
-    role: Role.Client
+    role: Role.Client,
+    name:"xxx"
   },
   {
     id: 3,
@@ -47,7 +49,8 @@ const users: User[] = [
     firstName: 'Rose',
     lastName: 'Doe',
     avatar: 'avatar-s-3.jpg',
-    role: Role.User
+    role: Role.User,
+    name:"xxx"
   }
 ];
 
