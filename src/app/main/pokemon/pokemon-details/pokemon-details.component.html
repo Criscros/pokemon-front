@@ -2,7 +2,57 @@
     <div class="content-body">
       <!-- content-header component -->
       <app-content-header [contentHeader]="contentHeader"></app-content-header>
+    
+      <section id="card-demo-example " >
+        <div class="row match-height">
+          <div class="col-md-6 col-lg-6" >
+            <div class="card">
+              <img class="card-img-top" src="{{todo.image}}" alt="{{todo.name}}" />
+              <div class="card-body">
+                <h4 class="card-title"></h4>
+                <!-- <h4 class="card-text">
+                  {{pokemon.type}}
+                </h4> -->
+                <!-- <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p> -->
+                <a    rippleEffect class="btn btn-outline-primary">{{todo.name}}</a>
+              </div>
+            </div>
+          </div>
+          <!-- ADITIONAL INFORMARTION -->
+          <div class="col-md-6 col-lg-6" >
+            <div class="card">
 
+              <div class="card-body">
+                
+                <h4 class="card-text">
+                  TIPO : {{todo.type.name | uppercase}}
+                </h4>
+                <h4 class="card-text">
+                  HABILIDADES : 
+                </h4>
+                <p class="card-text"  *ngFor="let ability of abilities">
+                 {{ability.ability.name}}
+                </p>
+                <h4 class="card-text">
+                  CARACTERISTICAS : 
+                </h4>
+                <p class="card-text" >
+                 
+                  {{characteristics}}
+                </p>
+         
+              </div>
+            </div>
+          </div>
+
+          
+          
+
+
+        </div>
+      </section>
       
     </div>
   </div>
